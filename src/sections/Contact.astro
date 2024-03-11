@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import whatsAppIcon from "/src/assets/icons/whatsapp-icon.svg";
+import linkedinIcon from "/src/assets/icons/linkedin-icon.svg";
+import githubIcon from "/src/assets/icons/github-icon.svg";
+---
+
+<section id="contact">
+    <h2 class="sectionTitle">Contactame</h2>
+    <h3> Si estas interesado en charlar connmigo, no dudes en contactarme</h3>
+    <div class="contactContainer">
+        <a href="https://wa.me/+5492342463886" target="_blank" class="whatsappSection">
+            <Image src={whatsAppIcon} alt="whatsapp" width={50} />
+            <p>Enviame un mensaje por WhatsApp</p>
+        </a>
+        <a href="https://www.linkedin.com/in/benjamin-fisico/" target="_blank" class="linkedinSection">
+            <Image src={linkedinIcon} alt="linkedin" width={50} />
+            <p>Enviame un mensaje por LinkedIn</p>
+        </a>
+        <a href="https://github.com/BenjaminFisico" target="_blank" class="githubSection">
+            <Image src={githubIcon} alt="github" width={50} />
+            <p>Revisa mi github</p>
+        </a>
+        <a href="#start">
+            <h3> ¡Gracias por visitar mi portfolio!</h3>
+            <h3> Volver al inicio </h3>
+        </a>
+    </div>
+</section>
+
+<style>
+    #contact{
+        min-height: 50vh;
+    }
+
+    .sectionTitle{
+        margin-top: 38px;
+    }
+
+    h3{
+        margin: 32px;
+        color:aliceblue;
+        text-align: center;
+    }
+
+    .contactContainer{
+        display: flex;
+        flex-direction: column;
+        position:absolute;
+        width: var(--screen-width);
+        z-index: 5;
+    }
+
+    a{
+        text-align: center;
+        color: white;
+        background-color: black;
+        margin-bottom: -50px;
+        transition: margin-bottom 0.5s ease;
+    }
+
+    .whatsappSection{
+        background-color: #00861d;
+    }
+
+    .linkedinSection{
+        background-color: #040494;
+    }
+
+    .githubSection{
+        background-color: #1E1E1E;
+    }
+
+    a:hover{
+        margin-bottom: 0px;
+    }
+
+    .blackBackground{
+        background-color: black;
+    }
+
+</style>

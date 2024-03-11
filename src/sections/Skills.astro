@@ -1,0 +1,160 @@
+---
+import SkillCard from "../components/SkillCard.astro";
+import angularIcon from "/src/assets/icons/angular-icon.svg";
+import astroIcon from "/src/assets/icons/astro-icon.svg";
+import laravelIcon from "/src/assets/icons/laravel-icon.svg";
+import postmanIcon from "/src/assets/icons/postman-icon.svg";
+import dockerIcon from "/src/assets/icons/docker-icon.svg";
+import tailwindIcon from "/src/assets/icons/tailwind-icon.svg";
+import javaScriptIcon from "/src/assets/icons/javascript-icon.svg";
+import phpIcon from "/src/assets/icons/php-icon.svg";
+import sqlIcon from "/src/assets/icons/sql-icon.svg";
+import typeScriptIcon from "/src/assets/icons/typescript-icon.svg";
+import javaIcon from "/src/assets/icons/java-icon.svg";
+import htmlIcon from "/src/assets/icons/html-icon.svg";
+import cssIcon from "/src/assets/icons/css-icon.svg";
+import gitIcon from "/src/assets/icons/git-icon.svg";
+import gamemakerIcon from "/src/assets/icons/gamemaker-icon.svg";
+import FinalOfSection from "../components/finalOfSection.astro";
+---
+
+<section id="skills">
+    <h2 class="sectionTitle">Habilidades</h2>
+    <div class="hoverUpTrigger"></div>
+    <article class="skillWheel">
+        <div class="skillContainer">
+            <SkillCard image={angularIcon} title="Angular" desc="Creación de páginas web dinamicas"/>
+            <SkillCard image={astroIcon} title="Astro" desc="Creación de páginas web estaticas"/>
+            <SkillCard image={laravelIcon} title="Laravel" desc="Desarrollo de API de alta calidad"/>
+            <SkillCard image={postmanIcon} title="Postman" desc="Prueba de API web"/>
+            <SkillCard image={dockerIcon} title="Docker" desc="Manejo de contenedores"/>
+            <SkillCard image={gamemakerIcon} title="Game maker" desc="Desarrollo de videojuegos"/>
+            <SkillCard image={gitIcon} title="Git" desc="Control de versiones"/>
+            <SkillCard image={sqlIcon} title="SQL" desc="Lenguaje para bases de datos"/>
+            <SkillCard image={javaIcon} title="Java" desc="Desarrollo de software de escritorio"/>
+            <SkillCard image={phpIcon} title="PHP" desc="Programación del lado del servidor"/>
+            <SkillCard image={tailwindIcon} title="Tailwind" desc="Framework CSS"/>
+            <SkillCard image={typeScriptIcon} title="TypeScript" desc="Superconjunto de javaScript"/>
+            <SkillCard image={javaScriptIcon} title="javaScript" desc="Lenguaje de scripting web"/>
+            <SkillCard image={htmlIcon} title="HTML" desc="Lenguaje de maquetado web"/>
+            <SkillCard image={cssIcon} title="CSS" desc="Lenguaje de estilos web"/>
+        </div>
+        <p>Iconos provistos por: <a href="https://www.svgrepo.com/" target="_blank">svg Repo</a></p>
+    </article>
+    <div class="hoverDownTrigger"></div>
+    
+</section>
+<FinalOfSection color="#DEE4E7" />
+
+<script>
+    let scrollUp = false;
+    let scrollDown = false;
+
+    function initScrollTriggers(){
+        if(navigator.userAgent.match('Mobile')){
+            let hoverUpTrigger:HTMLElement = document.getElementsByClassName('hoverUpTrigger')[0] as HTMLElement;
+            if(hoverUpTrigger){
+                hoverUpTrigger.style.display = "none";
+            }
+            let hoverDownTrigger:HTMLElement = document.getElementsByClassName('hoverDownTrigger')[0] as HTMLElement;
+            if(hoverDownTrigger){
+                hoverDownTrigger.style.display = "none";
+            }
+            return;
+        }
+        let hoverUpTrigger = document.getElementsByClassName('hoverUpTrigger')[0];
+        if(hoverUpTrigger){
+            hoverUpTrigger.addEventListener('mouseenter', ()=>{
+                scrollUp = true;
+                scrolledUp();
+            });
+            hoverUpTrigger.addEventListener('mouseleave', ()=>{
+                scrollUp = false;
+            });
+        }
+        let hoverDownTrigger = document.getElementsByClassName('hoverDownTrigger')[0];
+        if(hoverDownTrigger){
+            hoverDownTrigger.addEventListener('mouseenter', ()=>{
+               scrollDown = true;
+               scrolledDown(); 
+            });
+            hoverDownTrigger.addEventListener('mouseleave', ()=>{
+                scrollDown = false;
+            })
+        }
+    }
+
+    function scrolledUp(){
+        if(scrollUp){
+            document.getElementsByClassName('skillWheel')[0].scrollBy({top: -10});
+            setTimeout(()=>{scrolledUp()}, 50);
+        }
+    }
+
+    function scrolledDown(){
+        if(scrollDown){
+            document.getElementsByClassName('skillWheel')[0].scrollBy({top: 10});
+            setTimeout(()=>{scrolledDown()}, 50);
+        }
+    }
+
+    initScrollTriggers();
+</script>
+
+<style>
+    #skills{
+        margin-top: -102px;
+        background-color: #DEE4E7;
+    }
+
+    .sectionTitle{
+        margin-top: 65px;
+        color: #24211c;
+    }
+
+    .skillWheel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+        height: 60vh;
+        width: var(--screen-width);
+        overflow: scroll;
+        overflow-x: hidden;
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+
+    .hoverUpTrigger, .hoverDownTrigger{
+        position: absolute;
+        left: 20%;
+        z-index: 10;
+        width: var(--screen-width);
+        height: 20vh;
+        background-color: transparent;
+    }
+
+    .hoverDownTrigger{
+        margin-top: -20vh;
+    }
+
+
+    .skillContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 20vh 0;
+        align-items: center;
+    }
+
+    .finalSection{
+        margin-bottom: -95px;
+    }
+
+    @media (min-width: 481px){
+        #skills{
+            margin-top: -163px;
+        }
+    }
+
+</style>

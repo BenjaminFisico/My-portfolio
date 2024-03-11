@@ -1,0 +1,178 @@
+---
+import ProyectCard from '../components/ProyectCard.astro';
+import birdListImage from '/src/assets/birdList-Logo.webp';
+import birdListBack from '/src/assets/birdListBack.gif';
+import laravelImage from '/src/assets/laravelPermissions.webp';
+import laravelBack from '/src/assets/laravelPermissionsback.webp';
+import ratLabImage from '/src/assets/ratLab.webp';
+import ratLabBack from '/src/assets/ratLabBack.gif';
+import FinalOfSection from '../components/finalOfSection.astro';
+---
+
+<section id="proyects">
+    <h2 class="sectionTitle">Proyectos personales</h2>
+    <ProyectCard title="Bird Lists" 
+                frontImage={birdListImage} backImage={birdListBack}>
+        <div class="proyectContent m-left" slot="left">
+            <p>Aplicación creada para la gestión de tareas. Todo List App pero más compleja porque añade varias capas de personalización.</p>
+            <p>También está preparada para guardar y cargar proyectos.</p>
+        </div>
+        <aside slot="links" class="linkBox">
+            <a href="https://bird-lists.vercel.app/home" class="link demo m-right m-left" target="_blank">{"DEMO"}</a>
+            <a href="https://github.com/BenjaminFisico/Bird-Lists" class="link code m-right" target="_blank">{"<CÓDIGO/>"}</a>
+        </aside>
+        <aside slot="technologies" class="technologiesContainer">
+            <h4>Tecnologías:</h4>
+            <div class="technologiesBox">
+                <p>Angular</p>
+            </div>
+            <div class="technologiesBox">
+                <p>TypeScript</p>
+            </div>
+            <div class="technologiesBox">
+                <p>HTML 5</p>
+            </div>
+            <div class="technologiesBox">
+                <p>CSS 3</p>
+            </div>
+        </aside>
+    </ProyectCard>
+    <ProyectCard title="Laravel permissions" 
+                frontImage={laravelImage} backImage={laravelBack}>
+        <div class="proyectContent rightSide" slot="right">
+            <p>La idea central de este proyecto fue el de diseñar un sistema para que a partir de este se creen sistemas más grandes.</p>
+            <p>Contiene diversas características como el registro y login de usuarios, CRUD, asignación de roles por usuario, asignación de permisos por usuario, entre otras.</p>
+        </div>
+        <aside slot="links" class="linkBox center">
+            <a href="https://github.com/BenjaminFisico/Laravel-datatable-permission" class="link code" target="_blank">{"<CÓDIGO/>"}</a>
+        </aside>
+        <aside slot="technologies" class="technologiesContainer">
+            <h4>Tecnologías:</h4>
+            <div class="technologiesBox">
+                <p>Laravel</p>
+            </div>
+            <div class="technologiesBox">
+                <p>PHP</p>
+            </div>
+            <div class="technologiesBox">
+                <p>Tailwind</p>
+            </div>
+            <div class="technologiesBox">
+                <p>HTML 5</p>
+            </div>
+        </aside>
+    </ProyectCard>
+    <ProyectCard title="Rat Lab" 
+                frontImage={ratLabImage} backImage={ratLabBack}>
+        <div class="proyectContent m-left" slot="left">
+            <p>Juego de puzles sencillo y retador, fue diseñado desde cero por mi para ser subido de forma gratuita a la play store, donde el mismo se encuentra disponible.</p>
+            <p>Dale una oportunidad y comprueba si eres capaz de superar cada nivel.</p>
+        </div>
+        <aside slot="links" class="linkBox">
+            <a href="https://play.google.com/store/apps/details?id=com.BafGameStudio.PuzzleGame" class="link code m-left" target="_blank">{"Play Store Link"}</a>
+        </aside>
+        <aside slot="technologies" class="technologiesContainer">
+            <h4>Tecnologías:</h4>
+            <div class="technologiesBox">
+                <p>Unity</p>
+            </div>
+            <div class="technologiesBox">
+                <p>C#</p>
+            </div>
+            <div class="technologiesBox">
+                <p>inkScape</p>
+            </div>
+        </aside>
+    </ProyectCard>
+</section>
+<FinalOfSection color="#24211c" direction="-1"/>
+
+<style>
+    #proyects{
+        margin-top: -64px;
+    }
+    
+    .proyectContent{
+        width: 70%;
+    }
+
+    .link{
+        color:transparent;
+        font-size: 1.5rem;
+        font-family: var(--title-Fonts);
+        font-weight: bold;
+        text-decoration: none;
+        -webkit-text-stroke: 2px rgba(53, 53, 53, 0.5);
+        transition: font-size 0.5s ease;
+    }
+
+    .link:hover{
+        font-size: 2rem;
+    }
+
+    .code{
+        background: linear-gradient(145deg, rgba(0,255,12,1) 10%, rgba(126,34,186,1) 50%, rgba(21,0,255,1) 100%);
+        background-clip: text;
+    }
+
+    .demo{
+        background: linear-gradient(145deg, rgba(31, 51, 65, 1) 0%, rgba(25, 26, 27, 1) 50%, rgba(50, 89, 108, 1) 100%);
+        background-clip: text;
+    }
+
+    .m-right{
+        margin-right: 16px;
+    }
+
+    .m-left{
+        margin-left: 16px;
+    }
+
+    .rightSide{
+        margin-left: 85px;
+    }
+
+    .linkBox{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .center{
+        justify-content: center;
+    }
+
+    .technologiesContainer{
+        display: flex;
+        margin-left: 64px;
+    }
+
+    h4{
+        color: #cedce7;
+    }
+
+    .technologiesBox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 8px;
+    }
+
+    .technologiesBox p{
+        background-color: #cedce7;
+        border-radius: 20px;
+        padding: 5px 16px;
+        font-weight: bold;
+        transition: font-size 0.5s ease, padding 0.5s ease;
+    }
+    .technologiesBox p:hover{
+        font-size: 1.2rem;
+        padding: 2px 4px;
+    }
+
+    @media (min-width: 481px){
+        .rightSide{
+            margin-left: 115px;
+        }
+    }
+</style>

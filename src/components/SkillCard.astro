@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    title: string;
+    desc: string;
+    image: ImageMetadata;
+}
+
+const { title, desc, image } = Astro.props;
+---
+
+<article class="skillCard">
+    <div class="iconContainer">
+        <Image src={image} alt={title} width={50} loading="lazy"/>
+    </div>
+    <div class="textContainer">
+        <h3>{title}</h3>
+        <p>{desc}</p>
+    </div>
+</article>
+
+<style>
+    .skillCard{
+        display: flex;
+        justify-content: flex-start;
+        border-radius: 20px;
+        background-color: #1E1E1E75;
+        margin-top: 8px;
+        width: 75%;
+        animation: animationForItem linear;
+        animation-timeline: view();
+    }
+
+    @keyframes animationForItem {
+        0%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-78px) skewX(0deg) skewY(0deg);
+        }
+        10%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(-80deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-50px) skewX(0deg) skewY(0deg);
+        } 
+        20%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(-45deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-25px) skewX(0deg) skewY(0deg);
+        }
+        40%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        }
+        50%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        }
+        75%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(45deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(-25px) skewX(0deg) skewY(0deg);
+        }
+        90%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(80deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(-60px) skewX(0deg) skewY(0deg);
+        }
+        100%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(-90px) skewX(0deg) skewY(0deg);
+        }
+    }
+
+    .skillCard::after{
+        content: '';
+        border-radius: 20px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        animation: blackAparition linear;
+        animation-timeline: view();
+    }
+
+    @keyframes blackAparition {
+        0%{
+            opacity: 1;
+        }
+        40%{
+            opacity: 0;
+        }
+        50%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+
+    }
+
+    .iconContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: #1E1E1E;
+        border-radius: 20px 0px 0px 20px;
+    }
+
+    .textContainer{
+        text-align: center;
+        width: -webkit-fill-available;
+    }
+
+    .textContainer p{
+        margin-left: 16px;
+    }
+</style>

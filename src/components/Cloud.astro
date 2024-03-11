@@ -1,0 +1,53 @@
+---
+interface Props {
+    clase: string
+}
+
+const { clase } = Astro.props;
+---
+
+<div class={clase}></div>
+
+<style>
+    .cloud{
+        width: 175px; 
+        height: 60px;
+        min-width: 175px; 
+        min-height: 60px;
+        background: #757575;
+        filter: blur(1px);
+        top: 400px; left: 200px;
+        border-radius: 100px;
+        position: relative;
+        justify-self: normal;
+        z-index: 0;
+        left: 500px;
+    }
+
+    .cloudAnimation{
+        left: -175px;
+    }
+
+    .cloud:after, .cloud:before {
+        content: '';
+        position: absolute;
+        background: #757575;
+    }
+
+    .cloud:after {
+        width: 50px; height: 50px;
+        top: -25px; left: 100px;
+        border-radius: 100px;
+    }
+
+    .cloud:before {
+        width: 100px; height: 100px;
+        top: -50px; right: 50px;
+        border-radius: 200px;
+    }
+
+    @media (min-width: 481px){
+       
+    }
+
+</style>

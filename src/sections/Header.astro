@@ -1,0 +1,142 @@
+---
+import { Image } from 'astro:assets';
+import myImage from '../assets/BenjaminFisico.webp';
+import laurel from '../assets/laure.svg';
+import Cloud from '../components/Cloud.astro';
+import FinalOfSection from '../components/finalOfSection.astro';
+---
+
+<header id="start">
+    <div class="bgHeader">
+        <Cloud clase="cloud"/>
+        <Cloud clase="cloud cloudAnimation"/>
+        <div class="textBackGround">
+            <div class="title">
+                <h1 id="firstTitle" >BENJAMÍN FISICO</h1>
+                <h1 id="secondTitle" >FULLSTACK DEVELOPER</h1>
+            </div>
+            <Image class="profilePhoto" src={myImage} alt="Foto de perfil de Benjamín Fisico" loading="eager" />
+        </div>
+    </div>
+    <div class="fullScreenRectangle">
+        <Image id="leftLaurelIcon" src={laurel} alt="Icono laurel" width={44} loading="eager"/>
+        <p>"Estoy preparado para superar cualquier problema con constancia, disciplina y compromiso"</p>
+        <Image id="rightLaurelIcon" src={laurel} alt="Icono laurel" width={44}/ loading="eager">
+    </div>
+</header>
+<FinalOfSection color="#DF7752"/>
+
+<style>
+    h1{
+        text-shadow: 1px 4px 6px rgba(0,0,0,0.75);
+        color: transparent;
+        font-size: 40px;
+        margin-block-start: 0;
+        margin-block-end: 4px;
+        margin-left: 10px;
+        font-family: "Inknut Antiqua", serif;
+        font-weight: 500;
+        font-style: normal;
+        line-height: 55px;
+        -webkit-text-stroke: 1px black;
+        position: relative;
+        z-index: 2;
+    }
+
+    #firstTitle{
+        background: linear-gradient(0deg,#DF7752 50%, #F5FCF1);
+        -webkit-background-clip: text;
+    }
+
+    #secondTitle{
+        background: linear-gradient(180deg,#DF7752 50%, #F5FCF1);
+        -webkit-background-clip: text;
+    }
+
+    .bgHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-color: #0c213a;
+        height: 80vh;
+        box-shadow: 0px 4px 20px 10px #00000050 inset;
+        overflow: hidden;
+    }
+
+    .fullScreenRectangle{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 20vh;
+        background-color: #DF7752;
+        border-top: 5px solid #C45E2D;
+    }
+
+    .fullScreenRectangle p{
+        font-family: "Comfortaa", sans-serif;
+        font-size: 14px;
+        color: #F5FCF1;
+        text-align: center;
+    }
+
+
+    #leftLaurelIcon{
+        margin-left: 8px;
+        transform: rotate(-90deg) translate(0px, 0px) scale(1, -1);
+    }
+
+    #rightLaurelIcon{
+        margin-right: 8px;
+        transform: rotate(-90deg) translate(0px, 0px) scale(1, 1);
+    }
+
+    .profilePhoto{
+        filter: contrast(1.3);
+        position: relative;
+        right: 150px;
+        width: 276px;
+        height: 276px;
+        z-index: 1;
+    }
+
+    .textBackGround {
+        display: flex;
+        margin-left: 42px;
+        background-color: rgba(255,255,255,.2);
+        backdrop-filter: blur(5px);
+        border-radius: 20px;
+        width: 400px;
+        height: 220px;
+        position: relative;
+        top: -37px;
+    }
+
+    .finalSection{
+        margin-bottom: -60px;
+    }
+
+    @media (min-width: 481px){
+		.textBackGround{
+            width: 684px;
+            height: 440px;
+        }
+
+        h1{
+            font-size: 80px;
+            line-height: 110px;
+        }
+
+        .profilePhoto{
+            width: 476px;
+            height: 476px;
+            right: 270px;
+            top: 40px;
+        }
+
+        .fullScreenRectangle p{
+            font-size: 24px;
+        }
+        
+	}
+
+</style>

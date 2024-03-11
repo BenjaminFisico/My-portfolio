@@ -1,0 +1,177 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    title: string;
+    frontImage: ImageMetadata;
+    backImage: ImageMetadata;
+}
+
+
+const { title, frontImage, backImage } = Astro.props;
+---
+
+<article class="proyectCard">
+    <h3>{title}</h3>
+    <aside class="content">
+        <slot name="left"/>
+        <div class="cube">
+            <Image src={backImage} alt="imagen de demostración de proyecto" loading="lazy" class="face -front" />
+            <Image src={frontImage} alt="imagen de proyecto" loading="lazy" class="face -front placeHolderImage" />
+            <div class="face -left"></div>
+            <div class="face -bottom"></div>
+            <div class="face -right"></div>
+            <div class="face -back"></div>
+        </div>
+        <slot name="right"/>
+    </aside>
+    <slot name="links"/>
+</article>
+<slot name="technologies"/>
+
+<style>
+    p{
+        margin-inline-start: 8px;
+        width: 68%;
+    }
+
+    h3{
+        text-align: center;
+        text-shadow: 4px 4px 6px rgba(0,0,0,0.49);
+    }
+
+    .proyectCard{
+        background: linear-gradient(45deg, #cedce7 0%, #596a72 100%);
+        border-radius: 20px;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+        margin: 100px 0 0 5%;
+    }
+
+    .proyectCard:hover .cube{
+        animation: flipAparition 1s linear 0s 1 normal forwards;
+    }
+
+    .proyectCard:hover .cube .placeHolderImage {
+        opacity: 0;
+    }
+
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .cube {
+        margin-left: 56px;
+        margin-bottom: 50px;
+        transform-style: preserve-3d;
+        transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(10deg) rotateY(-20deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        transition: transform 0.5s ease-in-out;
+        animation: flipDeparition 1s linear 0s 1;
+    }
+
+    @keyframes flipAparition {
+        0%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(10deg) rotateY(-20deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        }
+        50%{
+            transform: scaleX(1.3) scaleY(1.3) scaleZ(1) rotateX(10deg) rotateY(-360deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        }
+        100%{
+            transform: scaleX(1.5) scaleY(1.5) scaleZ(1) rotateX(0deg) rotateY(-360deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        }
+    }
+
+    @keyframes flipDeparition {
+        0%{
+            transform: scaleX(1.5) scaleY(1.5) scaleZ(1) rotateX(0deg) rotateY(-360deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        }
+        50%{
+            transform: scaleX(1.3) scaleY(1.3) scaleZ(1) rotateX(10deg) rotateY(-360deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        }
+        100%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(10deg) rotateY(-20deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        }
+    }
+
+    .cube .face {
+        position: absolute;
+    }
+
+    .cube .-front {
+        width: 100px;
+        height: 250px;
+        transform: translate(-50%, -50%) rotateY(0deg) translateZ(12.5px);
+        background: rgba(103, 148, 193, 1);
+        transition: opacity 1s ease-in-out;
+    }
+
+    .cube .-left {
+        width: 25px;
+        height: 250px;
+        transform: translate(-50%, -50%) rotateY(90deg) translateZ(50px);
+        background: rgb(68, 86, 104);
+    }
+
+    .cube .-bottom {
+        width: 100px;
+        height: 25px;
+        transform: translate(-50%, -50%) rotateX(-90deg) translateZ(125px);
+        background: rgb(68, 86, 104);
+    }
+
+    .cube .-right {
+        width: 25px;
+        height: 250px;
+        transform: translate(-50%, -50%) rotateY(-90deg) translateZ(50px);
+        background: rgb(68, 86, 104);
+    }
+
+    .cube .-back {
+        width: 100px;
+        height: 250px;
+        transform: translate(-50%, -50%) rotateY(180deg) translateZ(12.5px);
+        background: rgb(54, 67, 73)    
+    }
+
+    @media (min-width: 481px){
+        .cube {
+            margin-left: 110px;
+        }
+
+
+        .cube .-front{
+            width: 150px;
+            height: 375px;
+            transform: translate(-50%, -50%) rotateY(0deg) translateZ(18.5px);
+        }
+
+        .cube .-left {
+            width: 37px;
+            height: 375px;
+            transform: translate(20%, -50%) rotateY(90deg) translateZ(50px);
+        }
+
+        .cube .-bottom {
+            width: 150px;
+            height: 37px;
+            transform: translate(-49%, 120%) rotateX(-90deg) translateZ(125px);
+        }
+
+        .cube .-right {
+            width: 37px;
+            height: 375px;
+            transform: translate(-115%, -50%) rotateY(-90deg) translateZ(50px);
+        }
+
+        .cube .-back {
+            width: 150px;
+            height: 375px;  
+            transform: translate(-50%, -50%) rotateY(180deg) translateZ(18.5px);
+        }
+    }
+    
+</style>

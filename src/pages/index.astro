@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../sections/Header.astro';
+import AboutMe from '../sections/AboutMe.astro';
+import Work from '../sections/Work.astro';
+import Proyects from '../sections/Proyects.astro';
+import Skills from '../sections/Skills.astro';
+import Contact from '../sections/Contact.astro';
+import Navbar from '../components/Navbar.astro';
+import Social from '../components/socialMedias.astro';
+---
+
+<Layout title="Benjamín fisico portfolio">
+	<main>
+		<Header />
+		<Navbar />
+		<AboutMe />
+		<Work />
+		<Proyects />
+		<Skills />
+		<Contact />
+		<Social />
+|		
+		<script>
+			const arrayOfClodus = document.getElementsByClassName('cloud');
+			for(let i=0; i < arrayOfClodus.length; i++){
+				let cloud = arrayOfClodus[i] as HTMLElement;
+				randomCloud(cloud);
+			}
+
+			function randomCloud(cloud: HTMLElement){
+				let animationduration = Math.floor(Math.random() * 20) + 20;
+				cloud.style.top = Math.floor(Math.random() * 400) + 'px';
+				cloud.style.transition = `left ${animationduration}s linear`;
+				if(cloud.classList.value.includes('cloudAnimation')){
+					cloud.classList.remove('cloudAnimation');
+				} else {
+					cloud.classList.add('cloudAnimation');
+				}
+				setTimeout(() => {
+					randomCloud(cloud);
+				}, animationduration * 1000);
+			}
+		</script>
+
+	</main>
+</Layout>
