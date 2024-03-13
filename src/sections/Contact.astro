@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import gmailIcon from "/src/assets/icons/gmail-icon.svg";
 import whatsAppIcon from "/src/assets/icons/whatsapp-icon.svg";
 import linkedinIcon from "/src/assets/icons/linkedin-icon.svg";
 import githubIcon from "/src/assets/icons/github-icon.svg";
@@ -9,6 +10,12 @@ import githubIcon from "/src/assets/icons/github-icon.svg";
     <h2 class="sectionTitle">Contactame</h2>
     <h3> Si estas interesado en charlar connmigo, no dudes en contactarme</h3>
     <div class="contactContainer">
+        <a class="gmailSection">
+            <Image src={gmailIcon} alt="whatsapp" width={50} />
+            <p>Enviame un correo electronico a:</p>
+            <h4>BenjaminFisico@gmail.com</h4>
+            <p>( haz click para copiar en el portapapeles)</p>
+        </a>
         <a href="https://wa.me/+5492342463886" target="_blank" class="whatsappSection">
             <Image src={whatsAppIcon} alt="whatsapp" width={50} />
             <p>Enviame un mensaje por WhatsApp</p>
@@ -27,6 +34,20 @@ import githubIcon from "/src/assets/icons/github-icon.svg";
         </a>
     </div>
 </section>
+
+<script>
+    const gmailSection = document.querySelector('a.gmailSection');
+
+    gmailSection?.addEventListener('click', ()=>{
+        copyEmailToClipboard();
+    });
+
+    function copyEmailToClipboard(){
+        navigator.clipboard.writeText('BenjaminFisico@gmail.com');
+        alert('Correo electronico copiado en el portapapeles');
+    }
+</script>
+
 
 <style>
     #contact{
@@ -57,6 +78,12 @@ import githubIcon from "/src/assets/icons/github-icon.svg";
         background-color: black;
         margin-bottom: -50px;
         transition: margin-bottom 0.5s ease;
+    }
+
+    .gmailSection{
+        background-color: #8b1717;
+        margin-bottom: -140px;
+        cursor: pointer;
     }
 
     .whatsappSection{
