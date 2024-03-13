@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import instagram from '../assets/icons8-instagram.svg';
 import Card from '../components/Card.astro';
+import InstagramAnimation from '../components/instagramAnimation.astro';
 import FinalSection from '../components/finalOfSection.astro';
 ---
 
@@ -27,7 +28,11 @@ import FinalSection from '../components/finalOfSection.astro';
         </div>
         <div class="thirdlist">
             <Card title='+' >
-                    <p>Creador de <a class="icon" href="https://www.instagram.com/top.mejores.web/" target="_blank"><Image src={instagram} alt="instagram" width={30} height={30} loading="eager"/> @Top.Mejores.Web</a></p>
+                    <ul>
+                        <li>capacidad para trabajar en equipo</li>
+                        <li>Comunicación efectiva</li>
+                        <li>Aprendo rapidamente de forma autodidacta</li>
+                    </ul>
             </Card>
         </div>
         <div class="fourlist">
@@ -46,6 +51,7 @@ import FinalSection from '../components/finalOfSection.astro';
             </Card>
         </div>
     </div>
+    <InstagramAnimation />
 </section>
 <FinalSection color="#24211c" direction="-1"/>
 
