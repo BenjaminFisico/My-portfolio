@@ -66,7 +66,7 @@ import FinalOfSection from "../components/finalOfSection.astro";
         if(hoverUpTrigger){
             hoverUpTrigger.addEventListener('mouseenter', ()=>{
                 scrollUp = true;
-                scrolledUp();
+                setTimeout(()=>{scrolledUp()}, 200);
             });
             hoverUpTrigger.addEventListener('mouseleave', ()=>{
                 scrollUp = false;
@@ -76,7 +76,7 @@ import FinalOfSection from "../components/finalOfSection.astro";
         if(hoverDownTrigger){
             hoverDownTrigger.addEventListener('mouseenter', ()=>{
                scrollDown = true;
-               scrolledDown(); 
+               setTimeout(()=>{scrolledDown()}, 200); 
             });
             hoverDownTrigger.addEventListener('mouseleave', ()=>{
                 scrollDown = false;
