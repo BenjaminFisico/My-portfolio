@@ -25,10 +25,10 @@ import Social from '../components/socialMedias.astro';
 			const arrayOfClodus = document.getElementsByClassName('cloud');
 			for(let i=0; i < arrayOfClodus.length; i++){
 				let cloud = arrayOfClodus[i] as HTMLElement;
-				randomCloud(cloud);
+				randomCloud(cloud, 5);
 			}
 
-			function randomCloud(cloud: HTMLElement){
+			function randomCloud(cloud: HTMLElement, maxDuration: number = 20) {
 				let animationduration = Math.floor(Math.random() * 20) + 20;
 				cloud.style.top = Math.floor(Math.random() * 400) + 'px';
 				cloud.style.transition = `left ${animationduration}s linear`;
