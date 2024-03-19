@@ -25,7 +25,7 @@ const { title, desc, image } = Astro.props;
         display: flex;
         justify-content: flex-start;
         border-radius: 20px;
-        background-color: #1E1E1E75;
+        background-color: #92a0a9;
         margin-top: 8px;
         width: 75%;
         animation: animationForItem linear;
@@ -34,28 +34,42 @@ const { title, desc, image } = Astro.props;
 
     @keyframes animationForItem {
         0%{
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-78px) skewX(0deg) skewY(0deg);
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-140px) skewX(0deg) skewY(0deg);
         }
-        10%{
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(-80deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-50px) skewX(0deg) skewY(0deg);
-        } 
-        20%{
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(-45deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-25px) skewX(0deg) skewY(0deg);
+        40% , 50%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(0) skewX(0deg) skewY(0deg);
         }
-        40%{
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        55%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(10deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-24px) skewX(0deg) skewY(0deg);
         }
-        50%{
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+        60%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(20deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-41px) skewX(0deg) skewY(0deg);
+        }
+        65%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(30deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-58px) skewX(0deg) skewY(0deg);
+        }
+        70%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(40deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-75px) skewX(0deg) skewY(0deg);
         }
         75%{
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(45deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(-25px) skewX(0deg) skewY(0deg);
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(50deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-92px) skewX(0deg) skewY(0deg);
+        }
+        80%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(60deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-109px) skewX(0deg) skewY(0deg);
+        }
+        85%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(70deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-126px) skewX(0deg) skewY(0deg);
         }
         90%{
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(80deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(-60px) skewX(0deg) skewY(0deg);
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(80deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-143px) skewX(0deg) skewY(0deg);
+        }
+        95%{
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-160px) skewX(0deg) skewY(0deg);
+            opacity: 1;
         }
         100%{
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(-90px) skewX(0deg) skewY(0deg);
+            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0) translateZ(-160px) skewX(0deg) skewY(0deg);
+            opacity: 0;
         }
     }
 
